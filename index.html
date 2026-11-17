@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Split images into left and right halves."
+    />
+    <title>Ratio — Image Splitter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="." aria-label="Ratio home"
+          ><span class="brand-mark" aria-hidden="true"><i></i><i></i></span
+          ><span>ratio</span></a
+        ><span class="topbar-note">A clean cut, every time.</span>
+      </header>
+      <section class="workspace" aria-label="Image splitter">
+        <div class="download-location">
+          <div>
+            <p class="section-label">DOWNLOAD LOCATION</p>
+            <p class="location-name" id="location-name">
+              Browser Downloads folder
+            </p>
+          </div>
+          <button class="text-button" id="folder-button" type="button">
+            Choose folder
+          </button>
+        </div>
+        <div
+          class="drop-zone"
+          id="drop-zone"
+          tabindex="0"
+          role="button"
+          aria-label="Drop images here or choose files"
+        >
+          <div class="drop-icon" aria-hidden="true">
+            <span></span><span></span>
+          </div>
+          <p class="drop-title">Drop images here</p>
+          <p class="drop-subtitle">
+            or
+            <button class="link-button" id="choose-button" type="button">
+              choose files
+            </button>
+          </p>
+          <p class="file-hint">
+            JPG, PNG, WEBP, GIF, and more · multiple files supported
+          </p>
+          <input id="file-input" type="file" accept="image/*" multiple hidden />
+        </div>
+        <div class="actions" hidden id="actions">
+          <button class="primary-button" id="split-button" type="button">
+            <span>Split &amp; download</span
+            ><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <p class="download-note">
+            Each image becomes two files in your chosen folder.
+          </p>
+        </div>
+        <p class="status" id="status" role="status"></p>
+      </section>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">IMAGE UTILITY / 01</p>
+        <h1 id="page-title">Split images.<br /><em>Keep both sides.</em></h1>
+        <p class="intro">
+          Drop in one or more images and Ratio will divide each one vertically,
+          saving the left and right halves as separate files.
+        </p>
+      </section>
+      <section class="results" aria-label="Selected images">
+        <div class="queue-header" hidden id="queue-header">
+          <div>
+            <p class="section-label">READY TO SPLIT</p>
+            <p class="queue-count" id="queue-count"></p>
+          </div>
+          <button class="text-button" id="clear-button" type="button">
+            Clear all
+          </button>
+        </div>
+        <div class="queue" id="queue" aria-live="polite"></div>
+      </section>
+      <footer class="footer">
+        <span>Private by design — everything happens in your browser.</span
+        ><span class="footer-dot">●</span>
+      </footer>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
